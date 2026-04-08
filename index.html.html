@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victoria Property Investment Case — 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-pale: #F5EDD4;
+  --dark: #0D0D0D;
+  --dark2: #1A1A1A;
+  --dark3: #242424;
+  --mid: #3A3A3A;
+  --text: #E8E4DC;
+  --text2: #A8A09A;
+  --text3: #6A6460;
+  --green: #4A9E6E;
+  --green-bg: rgba(74,158,110,0.12);
+  --amber: #C97D2A;
+  --amber-bg: rgba(201,125,42,0.12);
+  --blue: #4A7EC9;
+  --blue-bg: rgba(74,126,201,0.12);
+  --border: rgba(201,168,76,0.15);
+  --border2: rgba(255,255,255,0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text2);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color .2s;
+  line-height: 60px;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 4rem 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .8s .2s forwards;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text);
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp .8s .35s forwards;
+}
+
+.hero-title span { color: var(--gold); }
+
+.hero-desc {
+  font-size: 17px;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp .8s .5s forwards;
+}
+
+.verified-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green-bg);
+  border: 1px solid rgba(74,158,110,0.3);
+  color: #6DC99A;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 4rem;
+  opacity: 0;
+  animation: fadeUp .8s .65s forwards;
+}
+
+.verified-pill::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #6DC99A;
+  border-radius: 50%;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 900px;
+  opacity: 0;
+  animation: fadeUp .8s .8s forwards;
+}
+
+.hero-stat {
+  background: var(--dark2);
+  padding: 1.5rem;
+}
+
+.hero-stat .n {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hero-stat .l {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.4;
+}
+
+.hero-stat .s {
+  font-size: 10px;
+  color: var(--text3);
+  margin-top: 4px;
+}
+
+/* SECTIONS */
+section {
+  padding: 100px 4rem;
+  border-bottom: 1px solid var(--border2);
+}
+
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.15;
+  max-width: 640px;
+}
+
+.section-body {
+  font-size: 15px;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+/* GRID LAYOUTS */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+/* CARDS */
+.card {
+  background: var(--dark2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color .3s;
+}
+.card:hover { border-color: var(--border); }
+
+.card-kpi .n {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.card-kpi .l { font-size: 13px; color: var(--text2); line-height: 1.4; }
+.card-kpi .d { font-size: 11px; color: #6DC99A; margin-top: 4px; font-weight: 500; }
+.card-kpi .src { font-size: 10px; color: var(--text3); margin-top: 4px; }
+
+/* REASON CARDS */
+.reason {
+  background: var(--dark2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin-bottom: 16px;
+  transition: border-color .3s, transform .3s;
+}
+.reason:hover { border-color: var(--border); transform: translateX(4px); }
+
+.reason-num {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.reason-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.reason-body {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.reason-data {
+  font-size: 12px;
+  color: #6DC99A;
+  font-weight: 500;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border2);
+}
+
+/* CALLOUT */
+.callout {
+  border-left: 2px solid var(--gold);
+  padding: 1.25rem 1.5rem;
+  background: rgba(201,168,76,0.05);
+  border-radius: 0 8px 8px 0;
+  margin: 2rem 0;
+}
+.callout p { font-size: 14px; color: var(--text2); line-height: 1.7; font-weight: 300; }
+.callout strong { color: var(--gold); font-weight: 500; }
+
+.callout-green {
+  border-left: 2px solid var(--green);
+  background: var(--green-bg);
+}
+.callout-green p { color: #9DE0B8; }
+
+.callout-amber {
+  border-left: 2px solid var(--amber);
+  background: var(--amber-bg);
+}
+.callout-amber p { color: #E0B07A; }
+
+/* COMPARISON TABLE */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.comp-table thead th {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text3);
+  padding: 0 16px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border2);
+}
+.comp-table tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border2);
+  color: var(--text2);
+  vertical-align: middle;
+}
+.comp-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+.comp-table tbody tr.highlight td {
+  background: rgba(201,168,76,0.06);
+  color: var(--text);
+  font-weight: 500;
+}
+.comp-table tbody tr.highlight td:first-child {
+  border-left: 2px solid var(--gold);
+  padding-left: 14px;
+}
+
+.chip {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+.chip-green { background: var(--green-bg); color: #6DC99A; }
+.chip-amber { background: var(--amber-bg); color: #E0B07A; }
+.chip-blue { background: var(--blue-bg); color: #8AB4E8; }
+.chip-gold { background: rgba(201,168,76,0.1); color: var(--gold); }
+
+/* FORECAST BARS */
+.forecast-bar { margin-bottom: 20px; }
+.fb-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.fb-name { font-size: 13px; color: var(--text); font-weight: 500; }
+.fb-val { font-size: 13px; font-weight: 500; color: var(--gold); }
+.fb-track {
+  height: 6px;
+  background: var(--dark3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.fb-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  width: 0;
+}
+.fb-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+/* SUBURB GRID */
+.suburb-card {
+  background: var(--dark2);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: border-color .25s, transform .25s;
+}
+.suburb-card:hover { border-color: var(--border); transform: translateY(-2px); }
+.suburb-card .sc-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.suburb-card .sc-type { font-size: 11px; color: var(--text3); margin-bottom: 12px; }
+.suburb-card .sc-divider { height: 1px; background: var(--border2); margin-bottom: 10px; }
+.suburb-card .sc-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.suburb-card .sc-label { font-size: 11px; color: var(--text3); }
+.suburb-card .sc-val { font-size: 12px; font-weight: 500; color: var(--text2); }
+.suburb-card .sc-val.good { color: #6DC99A; }
+.suburb-card .sc-catalyst { font-size: 11px; color: var(--text3); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border2); line-height: 1.4; }
+
+/* CORRIDOR TABS */
+.corridor-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 3rem;
+}
+.corr-tab {
+  padding: 10px 24px;
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  background: none;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.corr-tab.active {
+  background: var(--gold);
+  color: var(--dark);
+  border-color: var(--gold);
+}
+.corr-pane { display: none; }
+.corr-pane.active { display: block; }
+
+/* PROFILE CARDS */
+.profile-card {
+  background: var(--dark3);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 12px;
+}
+.profile-card .pt { font-size: 14px; font-weight: 500; color: var(--gold); margin-bottom: 6px; }
+.profile-card .pb { font-size: 13px; color: var(--text2); line-height: 1.65; font-weight: 300; }
+
+/* TIMELINE */
+.timeline { padding-left: 28px; position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px; top: 6px; bottom: 6px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+}
+.tl-item { position: relative; margin-bottom: 2rem; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -21px; top: 6px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+}
+.tl-item.pending::before { background: var(--amber); box-shadow: 0 0 0 3px rgba(201,125,42,0.15); }
+.tl-year { font-size: 11px; font-weight: 500; color: var(--gold); margin-bottom: 4px; letter-spacing: 0.06em; }
+.tl-item.pending .tl-year { color: var(--amber); }
+.tl-text { font-size: 14px; color: var(--text2); line-height: 1.65; font-weight: 300; }
+.tl-text strong { color: var(--text); font-weight: 500; }
+
+/* SECTOR BARS */
+.sector-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.sb-label { font-size: 12px; color: var(--text2); width: 160px; min-width: 160px; text-align: right; }
+.sb-track { flex: 1; height: 22px; background: var(--dark3); border-radius: 4px; overflow: hidden; }
+.sb-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; font-size: 11px; font-weight: 500; color: var(--dark); transition: width 1.4s cubic-bezier(.4,0,.2,1); width: 0; }
+.sb-val { font-size: 11px; color: var(--text3); width: 80px; }
+
+/* FOOTER */
+footer {
+  padding: 3rem 4rem;
+  border-top: 1px solid var(--border2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--gold); }
+.footer-note { font-size: 11px; color: var(--text3); max-width: 480px; text-align: right; line-height: 1.5; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s, transform .7s;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* DIVIDER */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 3rem 0;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--mid); border-radius: 3px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  section { padding: 70px 2.5rem; }
+  .hero { padding: 100px 2.5rem 60px; }
+  footer { padding: 2rem 2.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+  .footer-note { text-align: center; }
+}
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 60px 1.5rem; }
+  .hero { padding: 90px 1.5rem 50px; }
+  .g2, .g3, .g4 { grid-template-columns: 1fr 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .corridor-tabs { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .g3, .g4 { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Start Investing — Victoria 2026</div>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#economy">Economy</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#infrastructure">Infrastructure</a></li>
+    <li><a href="#corridors">Corridors</a></li>
+    <li><a href="#clients">Client fit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-eyebrow">Verified investment brief — April 2026</div>
+  <h1 class="hero-title">Victoria, Australia.<br>The <span>rebound</span> opportunity.</h1>
+  <p class="hero-desc">After three years of underperformance, Melbourne is entering a new growth cycle. Infrastructure completions, population momentum, and a 13% undervaluation vs Sydney have created a rare window for long-term residential property investment.</p>
+  <div class="verified-pill">All data independently source-verified</div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="n">~$890K</div>
+      <div class="l">Melbourne median house price</div>
+      <div class="s">CoreLogic HVI Feb 2026</div>
+    </div>
+    <div class="hero-stat">
+      <div class="n">13%</div>
+      <div class="l">Undervalued vs Sydney historical ratio</div>
+      <div class="s">ANZ Economics 2026</div>
+    </div>
+    <div class="hero-stat">
+      <div class="n">6.8%</div>
+      <div class="l">Forecast house price growth 2026</div>
+      <div class="s">KPMG Residential Property Outlook Jan 2026</div>
+    </div>
+    <div class="hero-stat">
+      <div class="n">1.4%</div>
+      <div class="l">Rental vacancy rate — near historic low</div>
+      <div class="s">Domain / CoreLogic Mar 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMIC CASE -->
+<section id="economy">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">01 — Economic fundamentals</div>
+    <h2 class="section-title">Built on the strongest economic base in Australia</h2>
+    <p class="section-body">Victoria has led all Australian states in real economic growth, jobs growth, and business investment over the last decade. These are structural advantages, not cyclical ones.</p>
+  </div>
+
+  <div class="g4 reveal" style="margin-bottom: 2.5rem;">
+    <div class="card card-kpi">
+      <div class="n">$606B</div>
+      <div class="l">Gross State Product 2023–24</div>
+      <div class="d">2nd largest state economy</div>
+      <div class="src">ABS State Accounts</div>
+    </div>
+    <div class="card card-kpi">
+      <div class="n">14%</div>
+      <div class="l">Real economic growth since pre-COVID</div>
+      <div class="d">Largest of any Australian state</div>
+      <div class="src">Victorian Budget 25/26</div>
+    </div>
+    <div class="card card-kpi">
+      <div class="n">3.8M</div>
+      <div class="l">Victorians employed — near record</div>
+      <div class="d">540,000 new jobs since Sept 2020</div>
+      <div class="src">Victorian Premier's Office</div>
+    </div>
+    <div class="card card-kpi">
+      <div class="n">46%</div>
+      <div class="l">Business investment growth since 2020</div>
+      <div class="d">vs 28% for rest of Australia</div>
+      <div class="src">Victorian Budget 25/26</div>
+    </div>
+  </div>
+
+  <div class="gold-line reveal"></div>
+
+  <div class="g2 reveal" style="gap: 3rem; align-items: start;">
+    <div>
+      <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Employment by sector</div>
+      <div class="sector-bar">
+        <div class="sb-label">Finance & insurance</div>
+        <div class="sb-track"><div class="sb-fill" style="background: var(--gold);" data-width="100">Fastest-growing</div></div>
+        <div class="sb-val">$49.3B GVA</div>
+      </div>
+      <div class="sector-bar">
+        <div class="sb-label">Prof & technical services</div>
+        <div class="sb-track"><div class="sb-fill" style="background: #8AB4E8;" data-width="88">Largest employer</div></div>
+        <div class="sb-val">~16% jobs</div>
+      </div>
+      <div class="sector-bar">
+        <div class="sb-label">Healthcare & social</div>
+        <div class="sb-track"><div class="sb-fill" style="background: #6DC99A;" data-width="78">Rapid expansion</div></div>
+        <div class="sb-val">14.1%</div>
+      </div>
+      <div class="sector-bar">
+        <div class="sb-label">Construction</div>
+        <div class="sb-track"><div class="sb-fill" style="background: #E0B07A;" data-width="58">Big Build driven</div></div>
+        <div class="sb-val">9.4%</div>
+      </div>
+      <div class="sector-bar">
+        <div class="sb-label">Tourism & hospitality</div>
+        <div class="sb-track"><div class="sb-fill" style="background: #8AB4E8;" data-width="50">$31.5B GSP</div></div>
+        <div class="sb-val">$31.5B</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Key structural advantages</div>
+      <div class="reason">
+        <div class="reason-num">Knowledge economy</div>
+        <div class="reason-title">Three recession-proof sectors dominate</div>
+        <div class="reason-body">Finance, professional services and healthcare now account for 46% of all Melbourne local employment — up from 42% in 2019. These sectors cannot be offshored, automated or relocated. They are permanent, high-income economic anchors.</div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">University engine</div>
+        <div class="reason-title">World's 13th ranked university — in Melbourne</div>
+        <div class="reason-body">9 universities, 13 major medical research institutes, 11 teaching hospitals. The Melbourne Biomedical Precinct is the Southern Hemisphere's largest, generating permanent, rotating rental demand from researchers, clinicians and international students.</div>
+      </div>
+      <div class="reason">
+        <div class="reason-num">Tech ecosystem</div>
+        <div class="reason-title">$34B tech sector — 5 fintech unicorns</div>
+        <div class="reason-body">Melbourne hosts over half of Australia's top 20 tech companies, a US$26.5B startup ecosystem, and produces 1.5 unicorn companies per $1B invested — better than China and the US. Tech workers are among the highest-earning renters in any city.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET DATA -->
+<section id="market" style="background: var(--dark2);">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">02 — Market position</div>
+    <h2 class="section-title">The arbitrage case — verified by the banks</h2>
+    <p class="section-body">Melbourne is the only major Australian capital still trading below its 2022 peak. Every major institution is forecasting catch-up growth. The entry window is now.</p>
+  </div>
+
+  <div class="g2 reveal" style="gap: 3rem; align-items: start; margin-bottom: 3rem;">
+    <div>
+      <div class="section-eyebrow" style="margin-bottom: 1.5rem;">2026 house price growth forecasts — Melbourne</div>
+
+      <div class="forecast-bar">
+        <div class="fb-header"><span class="fb-name">KPMG — "Standout performer"</span><span class="fb-val">6.8%</span></div>
+        <div class="fb-track"><div class="fb-fill" data-width="91"></div></div>
+        <div class="fb-sub">Houses 6.8% / Units 7.1% — KPMG Residential Property Outlook Jan 2026</div>
+      </div>
+      <div class="forecast-bar">
+        <div class="fb-header"><span class="fb-name">ANZ Bank</span><span class="fb-val">6.6%</span></div>
+        <div class="fb-track"><div class="fb-fill" data-width="88"></div></div>
+        <div class="fb-sub">Affordability-driven boost — ANZ Research Aug 2025</div>
+      </div>
+      <div class="forecast-bar">
+        <div class="fb-header"><span class="fb-name">Domain</span><span class="fb-val">~6%</span></div>
+        <div class="fb-track"><div class="fb-fill" data-width="80"></div></div>
+        <div class="fb-sub">Record highs forecast by year-end 2026</div>
+      </div>
+      <div class="forecast-bar">
+        <div class="fb-header"><span class="fb-name">Westpac</span><span class="fb-val">4.0%</span></div>
+        <div class="fb-track"><div class="fb-fill" data-width="54"></div></div>
+        <div class="fb-sub">Conservative floor — Westpac Property Update</div>
+      </div>
+      <div class="forecast-bar">
+        <div class="fb-header"><span class="fb-name">NAB</span><span class="fb-val">~3.9%</span></div>
+        <div class="fb-track"><div class="fb-fill" data-width="52"></div></div>
+        <div class="fb-sub">More conservative — NAB Residential Property Survey</div>
+      </div>
+
+      <div class="callout" style="margin-top: 1.5rem;">
+        <p><strong>Consensus range: 4–7% in 2026.</strong> Every major institution is positive. No major forecaster is predicting a decline. The divergence is magnitude, not direction.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-eyebrow" style="margin-bottom: 1.5rem;">City comparison — Feb 2026</div>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Median (Feb 2026)</th>
+            <th>5-yr growth</th>
+            <th>2026 forecast</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Brisbane</td>
+            <td>~$1.17M</td>
+            <td>+86%</td>
+            <td>+10.9%</td>
+            <td><span class="chip chip-amber">Near peak</span></td>
+          </tr>
+          <tr>
+            <td>Perth</td>
+            <td>~$1.03M</td>
+            <td>+82%</td>
+            <td>+12.8%</td>
+            <td><span class="chip chip-amber">Stabilising</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>Melbourne ★</td>
+            <td>~$890K</td>
+            <td>+22%</td>
+            <td>+6.6–6.8%</td>
+            <td><span class="chip chip-gold">Rebounding</span></td>
+          </tr>
+          <tr>
+            <td>Sydney</td>
+            <td>~$1.65M+</td>
+            <td>~+30%</td>
+            <td>+5.8%</td>
+            <td><span class="chip chip-blue">Affordability cap</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 1.5rem;">
+        <div class="card card-kpi" style="margin-bottom: 12px;">
+          <div class="n">$517K</div>
+          <div class="l">Sydney–Melbourne price gap — widest in 20+ years</div>
+          <div class="src">ANZ Research 2026</div>
+        </div>
+        <div class="card card-kpi">
+          <div class="n">3.7%</div>
+          <div class="l">Melbourne gross yield — above national capital city average of 3.4%</div>
+          <div class="src">Cotality / Jellis Craig Feb 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section id="infrastructure">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">03 — Infrastructure delivery</div>
+    <h2 class="section-title">$100B+ Big Build — already delivering</h2>
+    <p class="section-body">2025–26 is a delivery year for Melbourne. Decade-long projects are now operational, permanently changing the value of specific precincts and corridors.</p>
+  </div>
+
+  <div class="g2 reveal" style="gap: 3rem; align-items: start;">
+    <div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">Operational — 14 Dec 2025</div>
+          <div class="tl-text"><strong>West Gate Tunnel ($10.2B)</strong> — Melbourne's second freeway river crossing is open. Removes 9,000+ trucks per day from residential streets. Cuts CBD commute from the west by up to 20 minutes. De-risks the Werribee, Tarneit and Point Cook corridor permanently. <span class="chip chip-green" style="margin-left:4px;">Confirmed BigBuild.vic.gov.au</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Operational — 30 Nov 2025 / Full 1 Feb 2026</div>
+          <div class="tl-text"><strong>Metro Tunnel — "The Big Switch"</strong> — Five new underground stations. 1,000+ extra weekly services. Arden (North Melbourne) and Parkville precincts repricing in real time. The biggest change to Melbourne's rail network in 40 years. <span class="chip chip-green" style="margin-left:4px;">Confirmed Metro Trains Melbourne</span></div>
+        </div>
+        <div class="tl-item pending">
+          <div class="tl-year">Under construction — delivery 2027</div>
+          <div class="tl-text"><strong>Melton Line Upgrade ($650M)</strong> — Site establishment April 2026. New Melton Station opening 2026. 9-car VLocity trains boosting capacity 50% from 2027 — one year ahead of schedule. <span class="chip chip-amber" style="margin-left:4px;">Confirmed BigBuild.vic.gov.au Mar 2026</span></div>
+        </div>
+        <div class="tl-item pending">
+          <div class="tl-year">Under construction — Stage 1 mid-2028</div>
+          <div class="tl-text"><strong>Beveridge Intermodal Precinct ($1.62B)</strong> — Australia's largest logistics hub. 17,000 jobs. $14B economic uplift for Victoria. 70% of roles for local workers. Removes 167,000 truck trips/year. Construction began December 2025. <span class="chip chip-amber" style="margin-left:4px;">Confirmed National Intermodal Dec 2025</span></div>
+        </div>
+        <div class="tl-item pending">
+          <div class="tl-year">TBMs launched early 2026</div>
+          <div class="tl-text"><strong>Suburban Rail Loop (SRL) East</strong> — Cheltenham to Box Hill. Anticipatory growth already beginning near confirmed station locations. Historical precedent: 15–25% premium within 5 years of SRL-equivalent openings in London, Hong Kong and Singapore. <span class="chip chip-amber" style="margin-left:4px;">Confirmed SRL Authority</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Planning reform — live now</div>
+      <div class="reason" style="margin-bottom: 12px;">
+        <div class="reason-num" style="color: #6DC99A;">Live — 8 September 2025</div>
+        <div class="reason-title">10-day VicSmart approvals</div>
+        <div class="reason-body">Single dwellings on lots under 300sqm now approved within 10 business days. Single dwellings on lots over 300sqm no longer require a planning permit. Granny flats under 60sqm permit-free. This is operational today.</div>
+        <div class="reason-data">Source: planning.vic.gov.au Aug 2025</div>
+      </div>
+      <div class="reason">
+        <div class="reason-num" style="color: #E0B07A;">Law — commencing Oct 2027</div>
+        <div class="reason-title">Better Decisions Made Faster Act 2026</div>
+        <div class="reason-body">Royal Assent 17 February 2026. The most significant overhaul of Victoria's planning legislation in decades. Three-tier permit assessment system. Full commencement 29 October 2027 — a forward tailwind for developers entering the market now.</div>
+        <div class="reason-data">Source: planning.vic.gov.au Feb 2026</div>
+      </div>
+
+      <div class="gold-line"></div>
+
+      <div class="g2" style="gap: 12px;">
+        <div class="card card-kpi">
+          <div class="n">60</div>
+          <div class="l">Activity centres fast-tracked for medium-density around new rail</div>
+          <div class="src">Victorian Government 2026</div>
+        </div>
+        <div class="card card-kpi">
+          <div class="n">426K</div>
+          <div class="l">National housing deficit by 2029 — Victoria's share is most acute</div>
+          <div class="src">Housing Australia 2024/25</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORRIDORS -->
+<section id="corridors" style="background: var(--dark2);">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">04 — Growth corridors</div>
+    <h2 class="section-title">West & North — two distinct investment theses</h2>
+    <p class="section-body">Understanding the difference between the western and northern corridors is critical to matching the right client to the right opportunity.</p>
+  </div>
+
+  <div class="corridor-tabs reveal">
+    <button class="corr-tab active" onclick="switchCorr('west', this)">Western corridor — Act now</button>
+    <button class="corr-tab" onclick="switchCorr('north', this)">Northern corridor — Conviction play</button>
+  </div>
+
+  <!-- WEST -->
+  <div class="corr-pane active" id="cp-west">
+    <div class="g2 reveal" style="gap: 3rem; align-items: start; margin-bottom: 3rem;">
+      <div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text); margin-bottom: 1rem;">The infrastructure is operational.<br>The repricing has just begun.</h3>
+        <p style="font-size: 14px; color: var(--text2); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem;">The West Gate Tunnel opened December 14, 2025. Property markets absorb infrastructure premiums over 12–36 months. Buyers are still entering before full repricing — that window is open right now.</p>
+
+        <div class="reason" style="margin-bottom: 12px;">
+          <div class="reason-num">01 — De-risked connectivity</div>
+          <div class="reason-title">Second river crossing eliminates the #1 objection</div>
+          <div class="reason-body">The West Gate Tunnel removes the single biggest risk premium applied to western suburbs — one-point-of-failure freeway access. That risk is gone permanently. Buyers who previously discounted western suburbs on commute reliability grounds no longer have that reason.</div>
+          <div class="reason-data">West Gate Tunnel open 14 Dec 2025. 9,000+ trucks/day removed from residential streets. Source: BigBuild.vic.gov.au</div>
+        </div>
+
+        <div class="reason" style="margin-bottom: 12px;">
+          <div class="reason-num">02 — Population engine</div>
+          <div class="reason-title">Wyndham — one of Australia's fastest-growing LGAs</div>
+          <div class="reason-body">Wyndham LGA (Werribee, Tarneit, Point Cook, Williams Landing) consistently adds 15,000+ residents annually. Population growth at this rate requires housing, schools, retail and services — creating self-reinforcing demand cycles that underpin both rental yield and capital growth.</div>
+          <div class="reason-data">Source: ABS Regional Population Growth 2024</div>
+        </div>
+
+        <div class="reason" style="margin-bottom: 12px;">
+          <div class="reason-num">03 — Cobblebank transformation</div>
+          <div class="reason-title">A dormitory suburb becoming a metropolitan activity centre</div>
+          <div class="reason-body">New Melton Hospital driving professional tenant demand. $1B Point Cook Town Centre expansion. New Melton Station with 4 platforms opening 2026. 9-car VLocity trains from 2027 — 50% capacity boost. Cobblebank is transitioning from estate to genuine urban hub.</div>
+          <div class="reason-data">Source: BigBuild.vic.gov.au Mar 2026; Melton Line Upgrade updates</div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-num">04 — Yield + affordability</div>
+          <div class="reason-title">4.5–5.0% gross yield at $550K–$700K entry</div>
+          <div class="reason-body">House and land packages still entering below the Melbourne median. Gross yields of 4.5–5.0% make the western corridor the strongest cash-flow proposition in metropolitan Melbourne. First-home buyer renters and young families provide a large, stable tenant base.</div>
+          <div class="reason-data">Source: PropTrack Q1 2026</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Western suburbs — opportunity map</div>
+        <div class="g2" style="gap: 10px; margin-bottom: 1rem;">
+          <div class="suburb-card">
+            <div class="sc-name">Mambourin</div>
+            <div class="sc-type">Wyndham — outer west</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val good">~$580K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.8%</div></div>
+            <div class="sc-row"><div class="sc-label">Vacancy</div><div class="sc-val good">Sub 1%</div></div>
+            <div class="sc-catalyst">New train station + Werribee employment precinct proximity</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Cobblebank</div>
+            <div class="sc-type">Melton — western hub</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val good">~$620K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.6%</div></div>
+            <div class="sc-row"><div class="sc-label">Station</div><div class="sc-val good">Opens 2026</div></div>
+            <div class="sc-catalyst">New Melton Hospital + station + activity centre zoning</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Tarneit</div>
+            <div class="sc-type">Wyndham — established</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val">~$640K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.5%</div></div>
+            <div class="sc-row"><div class="sc-label">Rail</div><div class="sc-val good">Operational</div></div>
+            <div class="sc-catalyst">Existing rail + West Gate Tunnel access + schools</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Point Cook</div>
+            <div class="sc-type">Wyndham — lifestyle</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val">~$720K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.2%</div></div>
+            <div class="sc-row"><div class="sc-label">Demand</div><div class="sc-val good">Very high</div></div>
+            <div class="sc-catalyst">Premium lifestyle — tunnel cuts CBD commute significantly</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Rockbank</div>
+            <div class="sc-type">Melton — growth</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val good">~$555K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~5.0%</div></div>
+            <div class="sc-row"><div class="sc-label">Platform ext.</div><div class="sc-val good">2027</div></div>
+            <div class="sc-catalyst">Lowest entry in corridor — platform extension coming 2027</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Werribee</div>
+            <div class="sc-type">Wyndham — employment</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val">~$680K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.4%</div></div>
+            <div class="sc-row"><div class="sc-label">Jobs base</div><div class="sc-val good">Strong</div></div>
+            <div class="sc-catalyst">Werribee Employment Precinct + second river crossing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NORTH -->
+  <div class="corr-pane" id="cp-north">
+    <div class="g2 reveal" style="gap: 3rem; align-items: start; margin-bottom: 3rem;">
+      <div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text); margin-bottom: 1rem;">The catalyst is under construction.<br>Prices haven't moved yet.</h3>
+        <p style="font-size: 14px; color: var(--text2); line-height: 1.7; font-weight: 300; margin-bottom: 1.5rem;">The Beveridge Intermodal Precinct — Australia's largest logistics hub — broke ground in December 2025. Stage 1 opens mid-2028. The window to buy before 17,000 local jobs arrive is open right now.</p>
+
+        <div class="callout-green" style="margin-bottom: 1.5rem;">
+          <p><strong>The Beveridge Intermodal Precinct:</strong> $1.62B federal investment. Construction commenced Dec 2025. 17,000 jobs at peak. $14B economic uplift for Victoria. 70% of roles targeted for local Whittlesea/Mitchell workers. This is the single biggest catalyst ever delivered to Melbourne's northern corridor.</p>
+        </div>
+
+        <div class="reason" style="margin-bottom: 12px;">
+          <div class="reason-num">01 — Employment transformation</div>
+          <div class="reason-title">The north stops being a dormitory suburb</div>
+          <div class="reason-body">17,000 jobs in freight, logistics, warehousing and supply chain — accessible within 15 minutes for residents in Beveridge, Donnybrook, Mickleham and Kalkallo. When employment comes to a dormitory suburb, values compound. This is the same dynamic that transformed Altona North and Dandenong South.</div>
+          <div class="reason-data">17,000 jobs. 70% local. $14B uplift. Source: National Intermodal / Federal Govt Dec 2025</div>
+        </div>
+
+        <div class="reason" style="margin-bottom: 12px;">
+          <div class="reason-num">02 — Anticipatory growth window</div>
+          <div class="reason-title">Buy before the infrastructure is priced in</div>
+          <div class="reason-body">Stage 1 opens mid-2028. Historical precedent from Moorebank (Sydney), Brendale (Brisbane) and Rockingham/Kwinana (Perth) shows land values in employment catchments begin repricing 18–36 months before opening. We are inside that window right now.</div>
+          <div class="reason-data">Construction commenced Dec 2025. Stage 1 operational mid-2028.</div>
+        </div>
+
+        <div class="reason" style="margin-bottom: 12px;">
+          <div class="reason-num">03 — Lowest entry prices in metro Melbourne</div>
+          <div class="reason-title">$500K–$640K with the highest population growth</div>
+          <div class="reason-body">Donnybrook, Mickleham and Kalkallo offer among the lowest entry prices in any Melbourne metropolitan corridor — while absorbing some of the state's highest population growth. Median lot prices rose 10% in the 12 months to Feb 2026 despite the expanded pipeline. Demand is outstripping supply even now.</div>
+          <div class="reason-data">Lot prices +10% to Feb 2026. Source: PropTrack Q1 2026</div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-num">04 — The Baldivis analogy</div>
+          <div class="reason-title">A decade-long doubling thesis</div>
+          <div class="reason-body">Baldivis (Perth, 2015) was a dormitory suburb with sub-$400K entry and thin local employment. By 2020 — with the Kwinana Industrial Area expansion delivering jobs and Tonkin Highway improving connectivity — values had doubled. Melbourne's northern corridor in 2026 mirrors this profile precisely: same entry price, same catalyst structure, same timeline.</div>
+          <div class="reason-data">7–10 year hold. Highest conviction long-term thesis in Melbourne right now.</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Northern suburbs — opportunity map</div>
+        <div class="g2" style="gap: 10px; margin-bottom: 1rem;">
+          <div class="suburb-card">
+            <div class="sc-name">Donnybrook</div>
+            <div class="sc-type">Whittlesea — Beveridge adjacent</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val good">~$530K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.9%</div></div>
+            <div class="sc-row"><div class="sc-label">Catalyst</div><div class="sc-val good">Beveridge 2028</div></div>
+            <div class="sc-catalyst">Closest suburb to Beveridge Precinct — highest anticipatory upside</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Mickleham</div>
+            <div class="sc-type">Hume — high growth</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val good">~$560K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.7%</div></div>
+            <div class="sc-row"><div class="sc-label">Pop. growth</div><div class="sc-val good">Very high</div></div>
+            <div class="sc-catalyst">Absorbing bulk of northern migration — schools and retail established</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Kalkallo</div>
+            <div class="sc-type">Hume — emerging</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val good">~$500K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~5.1%</div></div>
+            <div class="sc-row"><div class="sc-label">Upside</div><div class="sc-val good">Highest</div></div>
+            <div class="sc-catalyst">Lowest entry in north — E6 corridor + Beveridge catchment</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Craigieburn</div>
+            <div class="sc-type">Hume — established</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val">~$650K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.4%</div></div>
+            <div class="sc-row"><div class="sc-label">Rail</div><div class="sc-val good">Operational</div></div>
+            <div class="sc-catalyst">Existing Craigieburn rail line — lower risk profile</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Beveridge</div>
+            <div class="sc-type">Mitchell — precinct suburb</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val good">~$510K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~5.0%</div></div>
+            <div class="sc-row"><div class="sc-label">Jobs by 2028</div><div class="sc-val good">17,000</div></div>
+            <div class="sc-catalyst">The precinct suburb itself — highest upside, most patience required</div>
+          </div>
+          <div class="suburb-card">
+            <div class="sc-name">Wollert</div>
+            <div class="sc-type">Whittlesea — maturing</div>
+            <div class="sc-divider"></div>
+            <div class="sc-row"><div class="sc-label">Entry price</div><div class="sc-val">~$590K</div></div>
+            <div class="sc-row"><div class="sc-label">Gross yield</div><div class="sc-val good">~4.6%</div></div>
+            <div class="sc-row"><div class="sc-label">Services</div><div class="sc-val good">Maturing</div></div>
+            <div class="sc-catalyst">School infrastructure in place — strong established tenant demand</div>
+          </div>
+        </div>
+
+        <div class="callout-amber">
+          <p>The northern corridor requires more patience than the west. This is a <strong>7–10 year hold</strong>, not a short-cycle trade. Suitable for clients who cannot need liquidity within 3 years and can service a loan through a limited-growth entry period.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT FIT -->
+<section id="clients">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">05 — Client matching</div>
+    <h2 class="section-title">Which investor profile fits which corridor?</h2>
+    <p class="section-body">The most important conversation is matching the right client to the right opportunity. Here is how to think about it.</p>
+  </div>
+
+  <div class="g2 reveal" style="gap: 3rem; align-items: start;">
+    <div>
+      <div style="font-size: 14px; font-weight: 500; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 1rem; text-transform: uppercase;">Western corridor — ideal for</div>
+      <div class="profile-card">
+        <div class="pt">First-time investor — yield-first, affordable entry</div>
+        <div class="pb">Budget $550K–$750K. Wants positive cash flow or near-neutral gearing. Comfortable with a 7–10 year hold. Needs a strong tenant pool of young families and first-home buyer renters. The western corridor delivers 4.5–5.0% gross yield at entry prices still within standard lending criteria.</div>
+      </div>
+      <div class="profile-card">
+        <div class="pt">SMSF investor — yield + depreciation benefits</div>
+        <div class="pb">New builds avoid land tax for 12 months post-completion. Gross yields of 4.5–5.0% on a $600K asset generate $27K–$30K annual rental income. Combined with depreciation benefits on new builds, the after-tax position is significantly stronger than inner-city equivalents.</div>
+      </div>
+      <div class="profile-card">
+        <div class="pt">Portfolio investor — adding diversification</div>
+        <div class="pb">Already holds inner-city or established property. Wants exposure to a different phase of the cycle — higher yield, longer horizon. The western corridor is in a different market phase to inner-ring and therefore diversifies both timing and yield risk across a portfolio.</div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 14px; font-weight: 500; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 1rem; text-transform: uppercase;">Northern corridor — ideal for</div>
+      <div class="profile-card">
+        <div class="pt">Long-term buy and hold — 7–10 year conviction investor</div>
+        <div class="pb">Comfortable with a yield-neutral or slightly negative cash position early in the hold. Understands the Beveridge catalyst is real, the timeline is clear, and the entry price will not be lower. This client sees Melbourne's north in 2026 the way smart buyers saw Brisbane in 2019.</div>
+      </div>
+      <div class="profile-card">
+        <div class="pt">Dual-income household — maximum borrowing power</div>
+        <div class="pb">Can service a $500K–$600K loan comfortably. Wants 5%+ yield to offset holding costs. Attracted to new build depreciation. The northern corridor offers the best new-build yield in metropolitan Melbourne at this price point, especially for dual-occupancy configurations on larger lots.</div>
+      </div>
+      <div class="profile-card">
+        <div class="pt">Portfolio builder — highest growth potential in the cycle</div>
+        <div class="pb">Already has established properties generating income. Wants to deploy $500K–$650K into the highest-upside play in Melbourne. Has a clear 10-year exit. The northern corridor is the highest-conviction long-term thesis in the Melbourne market right now. The client who buys in 2026 will have the story to tell in 2033.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gold-line reveal" style="margin-top: 3rem;"></div>
+
+  <div class="callout reveal" style="max-width: 700px; margin-top: 2rem;">
+    <p><strong>Disclaimer:</strong> This report is general information only and does not constitute personal financial advice. All forecasts are sourced from third-party institutions (KPMG, ANZ, Domain, Westpac, NAB, CoreLogic, National Intermodal) and are subject to change. Past performance is not a reliable indicator of future results. Always seek independent financial and legal advice before making property investment decisions.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Start Investing</div>
+  <div class="footer-note">Investment brief prepared April 2026. All data verified against government, ABS, KPMG, ANZ, CoreLogic, National Intermodal and Victorian Big Build sources. Property investment involves risk. Independent advice recommended.</div>
+</footer>
+
+<script>
+function switchCorr(id, btn) {
+  document.querySelectorAll('.corr-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.corr-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('cp-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.sb-fill').forEach(fill => {
+        const w = fill.getAttribute('data-width');
+        if (w) fill.style.width = w + '%';
+      });
+      entry.target.querySelectorAll('.fb-fill').forEach(fill => {
+        const w = fill.getAttribute('data-width');
+        if (w) fill.style.width = w + '%';
+      });
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('section').forEach(s => barObserver.observe(s));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
